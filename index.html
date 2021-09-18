@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="./js/all.js"></script>
+    <title>SlenderNight</title>
+</head>
+<body>
+<div class="wrapper">
+    <header class="header header__transparent">
+        <div class="header__container container">
+            <div class="header__body">
+                <a href="#" class="header__logo">
+                    <h3>SlenderNight</h3>
+                </a>
+                <div class="header__menu-burger">
+                    <span></span>
+                </div>
+                <nav class="header__menu-list">
+                    <ul class="menu-list">
+                        <li class="menu-list__item">
+                            <a href="#" class="menu-list__link">Главная</a>
+                        </li>
+                        <li class="menu-list__item">
+                            <a href="#" class="menu-list__link">Донат</a>
+                        </li>
+                        <li class="menu-list__item">
+                            <a href="#" class="menu-list__link">Правила</a>
+                        </li>
+                    </ul>
+                </nav>
+                <a href="#" class="header__login btn purple">
+                    Авторизация
+                </a>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <div class="main__main-block">
+            <div class="main-block__container container">
+                <div class="main-block__body">
+                    <h1 class="main-block__title">
+                        Хоррор сервер Minecraft
+                    </h1>
+                    <h3 class="main-block__subtitle">
+                        Оригинальный проект с самописными плагинами, на котором вы еще никогда не играли!
+                    </h3>
+                    <div class="main-block__buttons">
+                        <button class="btn purple notify-show"
+                                value="mc.slendernight.ru"
+                                onclick="copyToClipboard(this.value)"
+                                data-target="#copy-ip">
+                            IP: mc.slendernight.ru
+                        </button>
+<!--                        <a href="#promo" class="btn outline-purple">Читать больше</a>-->
+                    </div>
+                </div>
+
+                <a href="#promo" class="arrow-btn__link">
+                    <i class="fas fa-arrow-down"></i>
+                </a>
+
+                <div class="main-block__bg-image">
+                    <img src="./image/main-image.png" alt="main-image">
+                </div>
+            </div>
+        </div>
+        <section class="main-section dark">
+            <a href="#" id="promo" style="position: absolute; left: 0; top: -60px;"></a>
+            <div class="main-section__container container">
+                <div class="main-section__header">
+                    <h2 class="main-section__header header__title light">Информация сервера</h2>
+<!--                    <h2 class="main-section__header header__subtitle light">Lorem ipsum dolor sit amet.</h2>-->
+                </div>
+                <div class="statistics__body">
+                    <div class="statistics__column">
+                        <div class="statistics__item">
+                            <div class="statistics__icon"><i class="fas fa-users"></i></div>
+                            <div class="statistics__value">20</div>
+                            <div class="statistics__text">Онлайн</div>
+                        </div>
+                    </div>
+                    <div class="statistics__column">
+                        <div class="statistics__item">
+                            <div class="statistics__icon"><i class="fas fa-clock"></i></div>
+                            <div class="statistics__value">День</div>
+                            <div class="statistics__text">Время суток</div>
+                        </div>
+                    </div>
+                    <div class="statistics__column">
+                        <div class="statistics__item">
+                            <div class="statistics__icon"><i class="fas fa-skull"></i></div>
+                            <div class="statistics__value" style="font-size: 14px">WitherShadow1111</div>
+                            <div class="statistics__text">Топ убийств</div>
+                        </div>
+                    </div>
+                    <div class="statistics__column">
+                        <div class="statistics__item">
+                            <div class="statistics__icon"><i class="fas fa-dizzy"></i></div>
+                            <div class="statistics__value" style="font-size: 14px">WitherShadow1111</div>
+                            <div class="statistics__text">Топ смертей</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="main-section light">
+            <div class="main-section__container container">
+                <div class="main-section__header">
+                    <h2 class="main-section__header header__title dark">Что вас ждет</h2>
+                    <h2 class="main-section__header header__subtitle dark">Описание главных возможностей сервреа</h2>
+                </div>
+                <div class="main-section__body">
+                    <div class="vertical-line"></div>
+                    <div class="main-section__body-info info-block">
+                        <div class="info-block__image">
+                            <img src="./image/main-image.png" alt="img-name">
+                        </div>
+                        <div class="info-block__about">
+                            <div class="diagonal-line"></div>
+                            <h3 class="about__title">Слендермен</h3>
+                            <p class="about__text">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab ad aspernatur excepturi hic impedit incidunt ipsa ipsum laborum magni minima molestiae nulla perspiciatis possimus provident quae, repellendus sit unde vel voluptas? Ad, et, facilis fugit neque nesciunt non obcaecati omnis perferendis quasi qui, quia rerum sequi vero. Ipsa, pariatur.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="main-section__body__info info-block">
+                        <div class="info-block__about">
+                            <div class="diagonal-line"></div>
+                            <h3 class="about__title">Скримеры</h3>
+                            <p class="about__text">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab ad aspernatur excepturi hic impedit incidunt ipsa ipsum laborum magni minima molestiae nulla perspiciatis possimus provident quae, repellendus sit unde vel voluptas? Ad, et, facilis fugit neque nesciunt non obcaecati omnis perferendis quasi qui, quia rerum sequi vero. Ipsa, pariatur.
+                            </p>
+                        </div>
+                        <div class="info-block__image">
+                            <img src="./image/main-image.png" alt="img-name">
+                        </div>
+                    </div>
+
+                    <div class="main-section__body__info info-block">
+                        <div class="info-block__image">
+                            <img src="./image/main-image.png" alt="img-name">
+                        </div>
+                        <div class="info-block__about">
+                            <div class="diagonal-line"></div>
+                            <h3 class="about__title">Души</h3>
+                            <p class="about__text">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab ad aspernatur excepturi hic impedit incidunt ipsa ipsum laborum magni minima molestiae nulla perspiciatis possimus provident quae, repellendus sit unde vel voluptas? Ad, et, facilis fugit neque nesciunt non obcaecati omnis perferendis quasi qui, quia rerum sequi vero. Ipsa, pariatur.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="main-section__body__info info-block">
+                        <div class="info-block__about">
+                            <div class="diagonal-line"></div>
+                            <h3 class="about__title">Способности</h3>
+                            <p class="about__text">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab ad aspernatur excepturi hic impedit incidunt ipsa ipsum laborum magni minima molestiae nulla perspiciatis possimus provident quae, repellendus sit unde vel voluptas? Ad, et, facilis fugit neque nesciunt non obcaecati omnis perferendis quasi qui, quia rerum sequi vero. Ipsa, pariatur.
+                            </p>
+                        </div>
+                        <div class="info-block__image">
+                            <img src="./image/main-image.png" alt="img-name">
+                        </div>
+                    </div>
+
+                    <div class="main-section__body__info info-block">
+                        <div class="info-block__image">
+                            <img src="./image/main-image.png" alt="img-name">
+                        </div>
+                        <div class="info-block__about">
+                            <div class="diagonal-line"></div>
+                            <h3 class="about__title">Сильные мобы</h3>
+                            <p class="about__text">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab ad aspernatur excepturi hic impedit incidunt ipsa ipsum laborum magni minima molestiae nulla perspiciatis possimus provident quae, repellendus sit unde vel voluptas? Ad, et, facilis fugit neque nesciunt non obcaecati omnis perferendis quasi qui, quia rerum sequi vero. Ipsa, pariatur.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <section class="main-section dark">
+            <div class="main-section__container container">
+                <div class="main-section__header">
+                    <h2 class="main-section__header header__title light">Игровой трейлер</h2>
+                    <h2 class="main-section__header header__subtitle light">Краткая демонстрация </h2>
+                </div>
+                <div class="main-section__body">
+                    <div class="main-section__body main-section__video">
+                        <video controls="controls" poster="./image/main-image.png">
+                            <source src="./video/trailer.mp4" type='video/ogg; codecs="theora, vorbis"'/>
+                            <source src="./video/trailer.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'/>
+                            <source src="./video/trailer.mp4" type='video/webm; codecs="vp8, vorbis"'/>
+                            Элемент video не поддерживается вашим браузером.
+                            <a href="./video/trailer.mp4">Скачайте видео</a>.
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="main-section dark">
+            <div class="main-section__container container">
+                <div class="main-section__body tb-line">
+                    <h2 class="body__center-text">Заходи! SlenderNight ждёт тебя!</h2>
+                    <button class="btn purple notify-show"
+                            value="mc.slendernight.ru"
+                            onclick="copyToClipboard(this.value)"
+                            data-target="#copy-ip">
+                        IP: mc.slendernight.ru
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="footer__container container">
+            <div class="footer__body">
+                <div class="footer__author">
+                    <span>
+                        Developed by <a href="https://fatherantelope.github.io/">FatherAntelope</a>
+                    </span>
+                </div>
+                <div class="footer__copy">
+                    &copy; 2021 SlenderNight
+                </div>
+                <div class="footer__social-links">
+                    <a href="https://vk.com/slendernight" class="footer__social-link">
+                        <i class="fab fa-vk"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="notify-item" id="copy-ip">
+        <p class="notify-item__text">IP-адрес скопирован!</p>
+        <div class="notify-item__close">&times;</div>
+    </div>
+</div>
+<script defer src="./js/script.js"></script>
+</body>
+</html>
