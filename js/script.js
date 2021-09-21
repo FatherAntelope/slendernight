@@ -5,33 +5,37 @@ const notifyCloses = document.getElementsByClassName("notify__close");
 const notifyButtonsShow = document.getElementsByClassName("notify-show");
 let timer;
 
-
-for (let notifyClose of notifyCloses) {
-    notifyClose.addEventListener("click", function () {
-        this.parentElement.classList.remove("active");
-        timer = null;
-    });
+if(notifyCloses.length > 0) {
+    for (let notifyClose of notifyCloses) {
+        notifyClose.addEventListener("click", function (e) {
+            this.parentElement.classList.remove("active");
+            timer = null;
+        });
+    }
 }
 
-for (let notifyButtonShow of notifyButtonsShow) {
-    notifyButtonShow.addEventListener("click", function () {
-        const notify = document.querySelector(this.dataset.target);
-        notify.classList.add("active");
-        if(!timer) {
-            timer = setTimeout(() => {
-                if (notify.classList.contains("active")) {
-                    notify.classList.remove("active");
-                    timer = null;
-                }
-            }, 3000);
-        }
-    });
+if(notifyButtonsShow.length > 0) {
+    for (let notifyButtonShow of notifyButtonsShow) {
+        notifyButtonShow.addEventListener("click", function () {
+            const notify = document.querySelector(this.dataset.target);
+            notify.classList.add("active");
+            if(!timer) {
+                timer = setTimeout(() => {
+                    if (notify.classList.contains("active")) {
+                        notify.classList.remove("active");
+                        timer = null;
+                    }
+                }, 3000);
+            }
+        });
+    }
 }
 
 burgerMenuItem.addEventListener("click", () => {
     burgerMenuItem.classList.toggle("active");
     menuItem.classList.toggle("active");
-    document.body.classList.toggle("scroll-lock");
+    if(!document.querySelector(".modal.active"))
+        document.body.classList.toggle("scroll-lock");
 });
 
 window.addEventListener("scroll", function () {

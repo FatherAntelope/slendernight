@@ -57,16 +57,18 @@ h1, h2, h3, h4, h5, h6 {
   font-family: minecraft;
   src: url("/fonts/F77 Minecraft.ttf");
 }
-:root {
-  --color--white: #ffffff;
-  --color--main: #2b2929;
-  --color--purple: #7e57c2;
-  --color--gold: #ffd464;
-  --blur-bg: blur(5px);
-}
-
 * {
   scroll-behavior: smooth;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+}
+*::-webkit-scrollbar-track {
+  background: #2b2929;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #ffd464;
+  border-radius: 4px;
 }
 
 body {
@@ -76,16 +78,6 @@ body {
 }
 body.scroll-lock {
   overflow: hidden;
-}
-body::-webkit-scrollbar {
-  width: 8px;
-}
-body::-webkit-scrollbar-track {
-  background: #2b2929;
-}
-body::-webkit-scrollbar-thumb {
-  background-color: #ffd464;
-  border-radius: 4px;
 }
 
 .wrapper {
@@ -118,7 +110,7 @@ body::-webkit-scrollbar-thumb {
   background-color: #2b2929;
   z-index: 2;
   box-shadow: 0 6px 4px -4px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
+  transition: height 0.3s ease, background-color 0.3s ease;
 }
 .header__transparent:before {
   height: 0;
@@ -159,7 +151,7 @@ body::-webkit-scrollbar-thumb {
   background-color: #7e57c2;
   width: 100%;
   height: 2px;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 .header__menu-burger span {
   top: 9px;
@@ -271,7 +263,7 @@ body::-webkit-scrollbar-thumb {
 .btn.outline-purple {
   color: #7e57c2;
   border: 2px solid #7e57c2;
-  transition: all ease 0.3s;
+  transition: color ease 0.3s, border-color ease 0.3s;
 }
 .btn.outline-purple:hover {
   color: #ffd464;
@@ -289,7 +281,7 @@ body::-webkit-scrollbar-thumb {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all ease 0.3s;
+  transition: color ease 0.3s, border-color ease 0.3s;
   animation: floating;
   animation-name: floating;
   animation-duration: 1.5s;
@@ -546,13 +538,14 @@ body::-webkit-scrollbar-thumb {
   color: #7e57c2;
   border-radius: 50%;
   border: 2px solid #7e57c2;
-  transition: all ease 0.3s;
+  transition: color ease 0.3s, border-color ease 0.3s;
 }
 .footer__social-links a:hover {
   color: #ffd464;
   border-color: #ffd464;
 }
 
+/* */
 .horizontal-line {
   height: 6px;
   width: 100%;
@@ -566,17 +559,18 @@ body::-webkit-scrollbar-thumb {
   z-index: 100;
   width: 300px;
   display: flex;
-  right: -100%;
+  right: 0;
   justify-content: space-between;
   align-items: center;
   margin: 15px;
   padding: 20px;
   color: #ffffff;
   background-color: #7e57c2;
-  transition: all 0.3s ease;
+  transform: translate(110%, 0);
+  transition: transform 0.3s ease;
 }
 .notify-item.active {
-  right: 0;
+  transform: translate(0, 0);
 }
 .notify-item:not(:last-child) {
   margin-bottom: 15px;
@@ -590,10 +584,84 @@ body::-webkit-scrollbar-thumb {
   font-weight: bold;
   font-size: 24px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease;
 }
 .notify-item__close:hover {
   color: #2b2929;
+}
+
+/* */
+.modal {
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(43, 41, 41, 0.8);
+  backdrop-filter: blur(5px);
+  z-index: 999;
+  transform: translate(0, -100%);
+  transition: all 0.3s ease;
+}
+.modal.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(0, 0);
+}
+.modal__dialog {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  min-height: 100%;
+  padding: 30px 10px;
+}
+.modal__content {
+  background-color: #ffffff;
+  max-width: 800px;
+  width: 100%;
+  margin: 10px;
+}
+.modal__header {
+  padding: 10px 20px;
+  background-color: #7e57c2;
+  position: relative;
+}
+.modal__title {
+  color: #ffd464;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.5;
+}
+.modal__close {
+  font-size: 20px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal__close span {
+  color: #ffd464;
+}
+.modal__body {
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 10px 20px;
+  max-height: 70vh;
+  height: 100%;
+}
+.modal__body * {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #2b2929;
+}
+
+.rules-list {
+  list-style: none;
 }
 
 @keyframes floating {
@@ -647,12 +715,13 @@ body::-webkit-scrollbar-thumb {
     z-index: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(43, 41, 41, 0.9);
+    background-color: rgba(43, 41, 41, 0.8);
     backdrop-filter: blur(5px);
-    transition: all 0.3s ease;
+    transform: translate(0, 0);
+    transition: transform 0.3s ease;
   }
   .header__menu-list.active {
-    left: 0;
+    transform: translate(-100%, 0);
   }
 
   .menu-list {

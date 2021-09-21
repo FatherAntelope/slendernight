@@ -5,7 +5,25 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/style.css">
+
+    <!--SEO теги. Описание и ключевые слова для поиска в браузере-->
+    <meta name="description" content="Хоррор сервер minecraft">
+    <meta name="keywords" content="майнкрафт со слендером, слендермен minecraft, хоррор майнкрафт, horror minecraft, slendernight, страшный сервер майнкрафт">
+
+    <!--Теги авторства-->
+    <meta name="Author" content="Горбунов Владлен">
+    <meta name="Copyright" content="Гоянов Роман">
+
+    <!--Теги для репоста страницы в соцсети-->
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="SlenderNight">
+    <meta property="og:description" content="Хоррор сервер minecraft">
+    <meta property="og:image" content="./image/main-image.png">
+    <meta property="og:url" content="Ссылка на страницу">
+    <meta property="og:site_name" content="SlenderNight">
+
+    <link rel="stylesheet" href="./css/style.css">
     <script defer src="./js/all.js"></script>
     <title>SlenderNight</title>
 </head>
@@ -29,7 +47,7 @@
                             <a href="#" class="menu-list__link">Донат</a>
                         </li>
                         <li class="menu-list__item">
-                            <a href="#" class="menu-list__link">Правила</a>
+                            <a href="#rules" class="menu-list__link modal-show">Правила</a>
                         </li>
                     </ul>
                 </nav>
@@ -40,7 +58,7 @@
         </div>
     </header>
     <main class="main">
-        <div class="main__main-block">
+        <section class="main__main-block">
             <div class="main-block__container container">
                 <div class="main-block__body">
                     <h1 class="main-block__title">
@@ -68,7 +86,7 @@
                     <img src="./image/main-image.png" alt="main-image">
                 </div>
             </div>
-        </div>
+        </section>
         <section class="main-section dark">
             <a href="#" id="promo" style="position: absolute; left: 0; top: -60px;"></a>
             <div class="main-section__container container">
@@ -237,11 +255,36 @@
             </div>
         </div>
     </footer>
-    <div class="notify-item" id="copy-ip">
-        <p class="notify-item__text">IP-адрес скопирован!</p>
-        <div class="notify-item__close">&times;</div>
+</div>
+
+<div class="notify-item" id="copy-ip">
+    <p class="notify-item__text">IP-адрес скопирован!</p>
+    <div class="notify-item__close">&times;</div>
+</div>
+
+<div class="modal" id="rules">
+    <div class="modal__dialog">
+        <div class="modal__content">
+            <div class="modal__header">
+                <button class="modal__close close-modal">
+                    <span>&times;</span>
+                </button>
+                <h3 class="modal__title">Правила сервера</h3>
+            </div>
+            <div class="modal__body">
+                <ul class="rules-list">
+                    <li class="rules-list__rule">Список говна</li>
+                    <li class="rules-list__note">Список говна</li>
+                </ul>
+            </div>
+            <div class="modal__footer">
+
+            </div>
+        </div>
     </div>
 </div>
-<script defer src="./js/script.js"></script>
+
+<script src="./js/script.js"></script>
+<script src="./js/modal.js"></script>
 </body>
 </html>
