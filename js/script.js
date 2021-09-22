@@ -1,11 +1,50 @@
-const burgerMenuItem = document.querySelector(".header__menu-burger");
-const menuItem = document.querySelector(".header__menu-list");
-const headerItem = document.querySelector(".header");
 const notifyCloses = document.getElementsByClassName("notify__close");
 const notifyButtonsShow = document.getElementsByClassName("notify-show");
+const rulesList = document.querySelector(".rules-list");
 let timer;
 
-if(notifyCloses.length > 0) {
+async function renderRulesList(url) {
+    if (rulesList) {
+        let response = await fetch(url);
+        if (response.ok) {
+            const json = await response.json();
+            let arrNotes = Object.values(json['notes']),
+                arrRules = Object.values(json['rules']);
+
+            let htmlItemRule, htmlItemNode;
+            arrRules.forEach(rule => {
+                htmlItemRule = `
+                    <li class="rules-list__rule">
+                        <i class="fas fa-times"></i>
+                        <span>${rule}.</span>
+                    </li>
+                    `;
+                rulesList.insertAdjacentHTML("beforeend", htmlItemRule);
+            });
+
+            arrNotes.forEach(note => {
+                htmlItemNode = `
+                    <li class="rules-list__note">
+                        <i class="fas fa-exclamation"></i>
+                        <span>${note}.</span>
+                    </li>
+                    `;
+                rulesList.insertAdjacentHTML("beforeend", htmlItemNode);
+            });
+        } else {
+            console.log(response.status);
+        }
+
+
+    }
+}
+
+if (rulesList) {
+    renderRulesList("../json/rules.json");
+}
+
+
+if (notifyCloses.length > 0) {
     for (let notifyClose of notifyCloses) {
         notifyClose.addEventListener("click", function (e) {
             this.parentElement.classList.remove("active");
@@ -14,12 +53,12 @@ if(notifyCloses.length > 0) {
     }
 }
 
-if(notifyButtonsShow.length > 0) {
+if (notifyButtonsShow.length > 0) {
     for (let notifyButtonShow of notifyButtonsShow) {
         notifyButtonShow.addEventListener("click", function () {
             const notify = document.querySelector(this.dataset.target);
             notify.classList.add("active");
-            if(!timer) {
+            if (!timer) {
                 timer = setTimeout(() => {
                     if (notify.classList.contains("active")) {
                         notify.classList.remove("active");
@@ -31,21 +70,7 @@ if(notifyButtonsShow.length > 0) {
     }
 }
 
-burgerMenuItem.addEventListener("click", () => {
-    burgerMenuItem.classList.toggle("active");
-    menuItem.classList.toggle("active");
-    if(!document.querySelector(".modal.active"))
-        document.body.classList.toggle("scroll-lock");
-});
 
-window.addEventListener("scroll", function () {
-    let scrolled = this.scrollY;
-    if (scrolled > 60) {
-        headerItem.classList.remove("header__transparent");
-    } else {
-        headerItem.classList.add("header__transparent");
-    }
-});
 
 function copyToClipboard(value) {
     const el = document.createElement('textarea');

@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--Теги авторства-->
+    <meta name="Author" content="Горбунов Владлен">
+    <meta name="Copyright" content="Гоянов Роман">
+    <link rel="stylesheet" href="./css/style.css">
+    <script defer src="./js/all.js"></script>
+    <title>SlenderNight</title>
+</head>
+<body>
+<div class="wrapper">
+    <header class="header">
+        <div class="header__container container">
+            <div class="header__body">
+                <a href="./" class="header__logo">
+                    <h3>SlenderNight</h3>
+                </a>
+                <div class="header__menu-burger">
+                    <span></span>
+                </div>
+                <nav class="header__menu-list">
+                    <ul class="menu-list">
+                        <li class="menu-list__item">
+                            <a href="./" class="menu-list__link">Главная</a>
+                        </li>
+                        <li class="menu-list__item">
+                            <a href="./donate.html" class="menu-list__link">Донат</a>
+                        </li>
+                        <li class="menu-list__item">
+                            <a href="#rules" class="menu-list__link modal-show">Правила</a>
+                        </li>
+                    </ul>
+                </nav>
+<!--                <a href="#" class="header__login btn purple">-->
+<!--                    Авторизация-->
+<!--                </a>-->
+            </div>
+        </div>
+    </header>
+    <main class="main" style="margin-top: 60px">
+        <section class="main-section light">
+            <div class="main-section__container container">
+                <div class="main-section__header">
+                    <h2 class="main-section__header header__title dark">Донат</h2>
+                    <h2 class="main-section__header header__subtitle dark">
+                        Донат – это пожертвование денежных средств для дальнейшего развития игрового проекта.
+                        Вы помогаете проекту жить, а мы выражаем вам благодарность в виде привилегии.
+                    </h2>
+                </div>
+                <div class="main-section__body">
+
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="footer__container container">
+            <div class="footer__body">
+                <div class="footer__author">
+                    <span>
+                        Developed by <a href="https://fatherantelope.github.io/">FatherAntelope</a>
+                    </span>
+                </div>
+                <div class="footer__copy">
+                    &copy; 2021 SlenderNight
+                </div>
+                <div class="footer__social-links">
+                    <a href="https://vk.com/slendernight" class="footer__social-link">
+                        <i class="fab fa-vk"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<div class="notify-item" id="copy-ip">
+    <p class="notify-item__text">IP-адрес скопирован!</p>
+    <div class="notify-item__close">&times;</div>
+</div>
+
+<div class="modal" id="rules">
+    <div class="modal__dialog">
+        <div class="modal__content">
+            <div class="modal__header">
+                <button class="modal__close close-modal">
+                    <span>&times;</span>
+                </button>
+                <h3 class="modal__title">Правила сервера</h3>
+            </div>
+            <div class="modal__body">
+                <ul class="rules-list">
+                    <!--Список правил из JS-->
+                </ul>
+            </div>
+            <div class="modal__footer">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script defer src="./js/header.js"></script>
+<script defer src="./js/modal.js"></script>
+<script defer src="./js/script.js"></script>
+</body>
+</html>

@@ -2,50 +2,50 @@ const modalLinks = document.getElementsByClassName("modal-show");
 const bodyElement = document.querySelector("body");
 const headerElement = document.querySelector(".header");
 const closesModal = document.getElementsByClassName("close-modal");
-const timeout = 100;
+const timeout = 300;
 let unlock = true;
 
-if(modalLinks.length > 0) {
+if (modalLinks.length > 0) {
     for (let modalLink of modalLinks) {
         modalLink.addEventListener("click", function (e) {
-           const modalId = modalLink.getAttribute("href").replace('#', '');
-           const currentModal = document.getElementById(modalId);
-           modalShow(currentModal);
-           e.preventDefault();
+            const modalId = modalLink.getAttribute("href").replace('#', '');
+            const currentModal = document.getElementById(modalId);
+            modalShow(currentModal);
+            e.preventDefault();
         });
     }
 }
 
-if(closesModal.length > 0) {
+if (closesModal.length > 0) {
     for (let closeModal of closesModal) {
         closeModal.addEventListener("click", function (e) {
-           modalClose(closeModal.closest(".modal"));
-           e.preventDefault()
+            modalClose(closeModal.closest(".modal"));
+            e.preventDefault()
         });
     }
 }
 
 function modalShow(currentModal) {
-    if(currentModal && unlock) {
+    if (currentModal && unlock) {
         const modalActive = document.querySelector('.modal.active');
-        if(modalActive) {
+        if (modalActive) {
             modalClose(modalActive, false);
         } else {
             bodyLock();
         }
         currentModal.classList.add("active");
         currentModal.addEventListener("click", function (e) {
-           if(!e.target.closest(".modal__content")) {
-               modalClose(e.target.closest(".modal"));
-           }
+            if (!e.target.closest(".modal__content")) {
+                modalClose(e.target.closest(".modal"));
+            }
         });
     }
 }
 
 function modalClose(modalActive, doUnlock = true) {
-    if(unlock) {
+    if (unlock) {
         modalActive.classList.remove("active");
-        if(doUnlock) {
+        if (doUnlock) {
             bodyUnLock();
         }
     }
@@ -53,13 +53,15 @@ function modalClose(modalActive, doUnlock = true) {
 
 function bodyLock() {
     const lockPaddingValue = window.innerWidth - document.querySelector('.wrapper').offsetWidth + 'px';
+    bodyElement.classList.add("scroll-lock");
     bodyElement.style.paddingRight = lockPaddingValue;
     headerElement.style.paddingRight = lockPaddingValue;
-    bodyElement.classList.add("scroll-lock");
+
 
     unlock = false;
     setTimeout(() => {
-       unlock = true;
+        unlock = true;
+
     }, timeout);
 }
 
@@ -67,7 +69,7 @@ function bodyUnLock() {
     setTimeout(() => {
         bodyElement.style.paddingRight = '0px';
         headerElement.style.paddingRight = '0px';
-        if(
+        if (
             bodyElement.classList.contains("scroll-lock")
             && !document.querySelector(".header__menu-burger").classList.contains("active")
         ) {
@@ -76,7 +78,7 @@ function bodyUnLock() {
     }, timeout);
 
     unlock = false;
-    setTimeout(()=> {
+    setTimeout(() => {
         unlock = true;
     }, timeout);
 }

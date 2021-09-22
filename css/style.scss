@@ -10,6 +10,7 @@ $color_main: #2b2929;
 $color_purple: #7e57c2;
 $color_gold: #ffd464;
 $blur_bg: blur(5px);
+$animation: cubic-bezier(.65,1.63,.74,.38);
 
 * {
     scroll-behavior: smooth;
@@ -93,7 +94,7 @@ body {
     &__logo {
         font-weight: 900;
         font-size: 24px;
-        color: $color_white;
+        color: $color_purple;
         z-index: 3;
     }
 
@@ -599,18 +600,18 @@ body {
     z-index: 100;
     width: 300px;
     display: flex;
-    right: 0;
+    left: 100%;
     justify-content: space-between;
     align-items: center;
     margin: 15px;
     padding: 20px;
+    box-shadow: 0 5px 10px 2px $color_main;
     color: $color_white;
     background-color: $color_purple;
-    transform: translate(110%, 0);
     transition: transform 0.3s ease;
 
     &.active {
-        transform: translate(0, 0);
+        transform: translate(-110%, 0);
     }
 
     &:not(:last-child) {
@@ -637,23 +638,22 @@ body {
 
 /* */
 .modal {
-    visibility: hidden;
-    opacity: 0;
+    visibility: visible;
+    opacity: 1;
     position: fixed;
     height: 100%;
     width: 100%;
-    top: 0;
+    top: -100%;
     left: 0;
     background-color: rgba(43, 41, 41, 0.8);
     backdrop-filter: $blur_bg;
     z-index: 999;
-    transform: translate(0, -100%);
-    transition: all 0.3s ease;
+    transition: all 1s $animation;
 
     &.active {
         opacity: 1;
         visibility: visible;
-        transform: translate(0, 0);
+        transform: translate(0, 100%);
     }
 
     &__dialog {
@@ -666,7 +666,7 @@ body {
 
     &__content {
         background-color: $color_white;
-        max-width: 800px;
+        max-width: 1000px;
         width: 100%;
         margin: 10px;
     }
@@ -675,6 +675,7 @@ body {
         padding: 10px 20px;
         background-color: $color_purple;
         position: relative;
+        box-shadow: 0 6px 4px -4px rgba(0, 0, 0, 0.2);
     }
 
     &__title {
@@ -707,16 +708,33 @@ body {
         height: 100%;
 
         * {
-            font-size: 14px;
+            font-size: 16px;
             line-height: 1.5;
-            color: $color_main;
         }
     }
 }
 
 .rules-list {
     list-style: none;
+    &__rule, &__note {
+        line-height: 1.5;
+        span {
+            margin-left: 5px;
+            color: $color_main;
+        }
 
+        &:not(:last-child) {
+            margin-bottom: 10px;
+        }
+    }
+
+    &__rule {
+        color: red;
+    }
+
+    &__note {
+        color: $color_purple;
+    }
 }
 
 @keyframes floating {
@@ -776,7 +794,7 @@ body {
         background-color: rgba(43, 41, 41, 0.8);
         backdrop-filter: $blur_bg;
         transform: translate(0, 0);
-        transition: transform 0.3s ease;
+        transition: transform 1s $animation;
 
         &.active {
             transform: translate(-100%, 0);

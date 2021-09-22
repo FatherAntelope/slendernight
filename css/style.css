@@ -130,7 +130,7 @@ body.scroll-lock {
 .header__logo {
   font-weight: 900;
   font-size: 24px;
-  color: #ffffff;
+  color: #7e57c2;
   z-index: 3;
 }
 .header__menu-list {
@@ -559,18 +559,18 @@ body.scroll-lock {
   z-index: 100;
   width: 300px;
   display: flex;
-  right: 0;
+  left: 100%;
   justify-content: space-between;
   align-items: center;
   margin: 15px;
   padding: 20px;
+  box-shadow: 0 5px 10px 2px #2b2929;
   color: #ffffff;
   background-color: #7e57c2;
-  transform: translate(110%, 0);
   transition: transform 0.3s ease;
 }
 .notify-item.active {
-  transform: translate(0, 0);
+  transform: translate(-110%, 0);
 }
 .notify-item:not(:last-child) {
   margin-bottom: 15px;
@@ -592,23 +592,22 @@ body.scroll-lock {
 
 /* */
 .modal {
-  visibility: hidden;
-  opacity: 0;
+  visibility: visible;
+  opacity: 1;
   position: fixed;
   height: 100%;
   width: 100%;
-  top: 0;
+  top: -100%;
   left: 0;
   background-color: rgba(43, 41, 41, 0.8);
   backdrop-filter: blur(5px);
   z-index: 999;
-  transform: translate(0, -100%);
-  transition: all 0.3s ease;
+  transition: all 1s cubic-bezier(0.65, 1.63, 0.74, 0.38);
 }
 .modal.active {
   opacity: 1;
   visibility: visible;
-  transform: translate(0, 0);
+  transform: translate(0, 100%);
 }
 .modal__dialog {
   align-items: center;
@@ -619,7 +618,7 @@ body.scroll-lock {
 }
 .modal__content {
   background-color: #ffffff;
-  max-width: 800px;
+  max-width: 1000px;
   width: 100%;
   margin: 10px;
 }
@@ -627,6 +626,7 @@ body.scroll-lock {
   padding: 10px 20px;
   background-color: #7e57c2;
   position: relative;
+  box-shadow: 0 6px 4px -4px rgba(0, 0, 0, 0.2);
 }
 .modal__title {
   color: #ffd464;
@@ -655,13 +655,28 @@ body.scroll-lock {
   height: 100%;
 }
 .modal__body * {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.5;
-  color: #2b2929;
 }
 
 .rules-list {
   list-style: none;
+}
+.rules-list__rule, .rules-list__note {
+  line-height: 1.5;
+}
+.rules-list__rule span, .rules-list__note span {
+  margin-left: 5px;
+  color: #2b2929;
+}
+.rules-list__rule:not(:last-child), .rules-list__note:not(:last-child) {
+  margin-bottom: 10px;
+}
+.rules-list__rule {
+  color: red;
+}
+.rules-list__note {
+  color: #7e57c2;
 }
 
 @keyframes floating {
@@ -718,7 +733,7 @@ body.scroll-lock {
     background-color: rgba(43, 41, 41, 0.8);
     backdrop-filter: blur(5px);
     transform: translate(0, 0);
-    transition: transform 0.3s ease;
+    transition: transform 1s cubic-bezier(0.65, 1.63, 0.74, 0.38);
   }
   .header__menu-list.active {
     transform: translate(-100%, 0);
