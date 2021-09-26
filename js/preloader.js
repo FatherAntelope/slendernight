@@ -1,8 +1,9 @@
 const preloader = document.querySelector(".preloader");
 const wrapper = document.querySelector(".wrapper");
 window.addEventListener("load", function () {
+    wrapper.classList.remove("hidden");
+    preloader.classList.add("fade-out");
     setTimeout(() => {
         preloader.style.display = "none";
-        wrapper.classList.remove("hidden");
     }, 1000);
 });

@@ -63,6 +63,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: opacity 0.6s ease;
   z-index: 999;
 }
 .preloader span {
@@ -85,12 +86,24 @@ h1, h2, h3, h4, h5, h6 {
   animation-delay: -0.2s;
 }
 
+.fade-out {
+  animation: fadeOut 0.5s ease-in-out forwards;
+}
+
 @keyframes preloader {
   0% {
     transform: scale(1);
   }
   100% {
     transform: scale(0);
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 
