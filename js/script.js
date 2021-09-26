@@ -3,44 +3,10 @@ const notifyButtonsShow = document.getElementsByClassName("notify-show");
 const rulesList = document.querySelector(".rules-list");
 let timer;
 
-async function renderRulesList(url) {
-    if (rulesList) {
-        let response = await fetch(url);
-        if (response.ok) {
-            const json = await response.json();
-            let arrNotes = Object.values(json['notes']),
-                arrRules = Object.values(json['rules']);
 
-            let htmlItemRule, htmlItemNode;
-            arrRules.forEach(rule => {
-                htmlItemRule = `
-                    <li class="rules-list__rule">
-                        <i class="fas fa-times"></i>
-                        <span>${rule}.</span>
-                    </li>
-                    `;
-                rulesList.insertAdjacentHTML("beforeend", htmlItemRule);
-            });
-
-            arrNotes.forEach(note => {
-                htmlItemNode = `
-                    <li class="rules-list__note">
-                        <i class="fas fa-exclamation"></i>
-                        <span>${note}.</span>
-                    </li>
-                    `;
-                rulesList.insertAdjacentHTML("beforeend", htmlItemNode);
-            });
-        } else {
-            console.log(response.status);
-        }
-
-
-    }
-}
 
 if (rulesList) {
-    renderRulesList("../json/rules.json");
+    renderRulesList("../json/rules.json").then();
 }
 
 
@@ -81,6 +47,40 @@ function copyToClipboard(value) {
     el.select();
     document.execCommand('copy');
     document.body.removeChild(el);
+}
+
+async function renderRulesList(url) {
+    if (rulesList) {
+        let response = await fetch(url);
+        if (response.ok) {
+            const json = await response.json();
+            let arrNotes = Object.values(json['notes']),
+                arrRules = Object.values(json['rules']);
+
+            let htmlItemRule, htmlItemNode;
+            arrRules.forEach(rule => {
+                htmlItemRule = `
+                    <li class="rules-list__rule">
+                        <i class="fas fa-times"></i>
+                        <span>${rule}.</span>
+                    </li>
+                    `;
+                rulesList.insertAdjacentHTML("beforeend", htmlItemRule);
+            });
+
+            arrNotes.forEach(note => {
+                htmlItemNode = `
+                    <li class="rules-list__note">
+                        <i class="fas fa-exclamation"></i>
+                        <span>${note}.</span>
+                    </li>
+                    `;
+                rulesList.insertAdjacentHTML("beforeend", htmlItemNode);
+            });
+        } else {
+            console.log(response.status);
+        }
+    }
 }
 
 

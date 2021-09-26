@@ -55,7 +55,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @font-face {
   font-family: minecraft;
-  src: url("/fonts/F77 Minecraft.ttf");
+  src: url("../fonts/F77 Minecraft.ttf");
 }
 * {
   scroll-behavior: smooth;
