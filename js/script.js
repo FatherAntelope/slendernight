@@ -6,7 +6,7 @@ let timer;
 
 
 if (rulesList) {
-    renderRulesList("../json/rules.json").then();
+    renderRulesList("json/rules.json").then();
 }
 
 
