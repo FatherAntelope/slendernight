@@ -80,6 +80,10 @@ body.scroll-lock {
   overflow: hidden;
 }
 
+.hidden {
+  display: none !important;
+}
+
 .wrapper {
   min-height: 100%;
   overflow: hidden;
@@ -601,7 +605,7 @@ body.scroll-lock {
   left: 0;
   background-color: rgba(43, 41, 41, 0.8);
   backdrop-filter: blur(5px);
-  z-index: 999;
+  z-index: 500;
   transition: all 1s cubic-bezier(0.65, 1.63, 0.74, 0.38);
 }
 .modal.active {

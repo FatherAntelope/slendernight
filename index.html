@@ -23,12 +23,18 @@
     <meta property="og:url" content="Ссылка на страницу">
     <meta property="og:site_name" content="SlenderNight">
 
+    <link rel="stylesheet" href="css/preloader.css">
     <link rel="stylesheet" href="./css/style.css">
     <script defer src="./js/all.js"></script>
     <title>SlenderNight</title>
 </head>
 <body>
-<div class="wrapper">
+<div class="preloader">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+<div class="wrapper hidden">
     <header class="header header__transparent header-animation">
         <div class="header__container container">
             <div class="header__body">
@@ -282,8 +288,9 @@
         </div>
     </div>
 </div>
-<script defer src="./js/header.js"></script>
-<script defer src="./js/modal.js"></script>
-<script defer src="./js/script.js"></script>
+<script src="./js/header.js"></script>
+<script src="./js/modal.js"></script>
+<script src="./js/script.js"></script>
+<script src="./js/preloader.js"></script>
 </body>
 </html>
